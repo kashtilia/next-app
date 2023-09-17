@@ -2,9 +2,9 @@ import Image from 'next/image'
 import Link from "next/link";
 import ProductCard from "@/app/components/ProductCard/ProductCard";
 import {getServerSession} from "next-auth";
-import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import tea from '@/public/images/tea.jpg';
 import {Metadata} from "next";
+import {authOptions} from "@/app/api/auth/authOptions";
 
 export default async function Home() {
    const session = await getServerSession(authOptions);

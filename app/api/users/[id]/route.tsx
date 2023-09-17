@@ -5,7 +5,7 @@ import prisma from "@/prisma/client";
 export async function GET(request:NextRequest, {params}:{params: {id:string}}) {
     const user = await prisma.user.findUnique({
         where: {
-            id: parseInt(params.id)
+            id: params.id
         }
     });
 
@@ -24,14 +24,14 @@ export async function PUT(request:NextRequest, {params}:{params: {id:string}}) {
         return NextResponse.json(validation.error.errors, {status: 400});
     }
 
-    const user = await prisma.user.findUnique({where: {id: parseInt(params.id)}});
+    const user = await prisma.user.findUnique({where: {id: params.id}});
 
     if (!user) {
         return NextResponse.json({error: 'User not found'}, {status: 404});
     }
 
     const updatedUser = await prisma.user.update({
-        where: {id: parseInt(params.id)},
+        where: {id: params.id},
         data: {
             name: body.name,
             email: body.email
@@ -42,7 +42,7 @@ export async function PUT(request:NextRequest, {params}:{params: {id:string}}) {
 }
 
 export async function DELETE(request:NextRequest, {params}:{params: {id:string}}) {
-    const user = await prisma.user.findUnique({where: {id: parseInt(params.id)}});
+    const user = await prisma.user.findUnique({where: {id: params.id}});
 
     if (!user) {
         return NextResponse.json({error: 'User not found'}, {status: 404});
