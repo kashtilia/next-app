@@ -11,7 +11,7 @@ interface IUsersPageProps {
 const UsersPage = async ({searchParams:{sortOrder}}:IUsersPageProps) => {
     return (
         <>
-            <h1>Users</h1>
+            <h1 className='font-lombardi'>Users</h1>
             <p>{new Date().toLocaleTimeString()}</p>
             <Link href={"/users/new"} className={"btn"}>New User</Link>
             <Suspense fallback={<p>Loading...</p>}>
