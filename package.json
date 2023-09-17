@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "preview-email": "email dev -p 3030"
@@ -38,6 +38,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/lodash": "^4.14.198",
-    "daisyui": "^3.7.4"
+    "daisyui": "^3.7.4",
+    "encoding": "^0.1.13"
   }
 }
